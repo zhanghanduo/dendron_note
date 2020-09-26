@@ -1,3 +1,4 @@
 site:
-  siteHierarchies: [dendron]
+  siteHierarchies: 
+    - root
   siteRootDir: docs
