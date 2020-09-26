@@ -4,12 +4,7 @@ title: Fcn
 desc: ''
 updated: 1601115004233
 created: 1601115004234
-data: {}
-fname: topic.convolution.fcn
 stub: false
-parent: f9d1287f-895f-494e-9513-c0dd7264e46b
-children: []
-hpath: topic.convolution.fcn
 ---
 # Fcn
 

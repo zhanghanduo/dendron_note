@@ -1,6 +1,6 @@
 ---
 id: root
-title: root
+title: Welcome
 desc: ''
 updated: 1595961348801
 created: 1595961348801
@@ -16,9 +16,7 @@ Focusing on paper reading on learning based detection, segmentation, keypoint-ex
 
 ## Focus of Research
 
-- [[Segmentation]]
-- [[image-retrieval]]
-
-## Dashboard
+- [[topic.segment]]
+- [[topic.keypoint]]
 
   

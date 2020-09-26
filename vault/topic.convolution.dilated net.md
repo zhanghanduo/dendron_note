@@ -4,6 +4,7 @@ title: Dilated net
 desc: ''
 updated: 1601115011927
 created: 1601115011927
+stub: false
 ---
 # Dilated net
 

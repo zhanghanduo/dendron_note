@@ -13,7 +13,7 @@ stub: false
 - [[Xiao, Tete]], [[Liu, Yingcheng]], [[Zhou, Bolei]], [[Jiang, Yuning]], & [[Sun, Jian]] #authors
 - [[2018]] #issued
 - #title: Unified Perceptual Parsing for Scene Understanding
-- #topic: [[Segmentation]], [[PSPNet]], [[FPN]]
+- #topic: [[topic.segment]], [[PSPNet]], [[topic.convolution.fpn]]
 ## [[mmsegmentation config]]
   - model: upernet_r50
   - default_runtime
@@ -37,19 +37,19 @@ stub: false
     - To balance samples across different labels in different categories we first randomly sample 10% of original images as the validation set. 
     - Then randomly choose an image both from the training and validation set, and check if the annotations in pixel-level are more balanced towards 10% after swapping these two images. The process is performed iteratively.
 ## 2. UPP Network
-  - UPerNet:: Unified Perceptual Parsing Network, based on [[FPN]]. Apply a [[Pyramid Pooling Module (PPM)]] from [[PSPNet]] on the last layer of the backbone network before feeding to the top-down branch in [[FPN]]. <mark>The aim is to unify parsing of visual attributes at multiple levels.</mark>
+  - UPerNet:: Unified Perceptual Parsing Network, based on [[topic.convolution.fpn]]. Apply a [[Pyramid Pooling Module (PPM)]] from [[PSPNet]] on the last layer of the backbone network before feeding to the top-down branch in [[topic.convolution.fpn]]. <mark>The aim is to unify parsing of visual attributes at multiple levels.</mark>
  
-  ((ref: [[fpn]]#fpn,1))
-  - [[FCN]]: Fully convolutional networks. To enable high-resolution predictions, [[Dilated Net]] is adopted.
-  - [[Dilated Net]]:
-  ((ref: [[dilated net]]#dilated net,1))
+  ((ref: [[topic.convolution.fpn]]#fpn,1))
+  - [[topic.convolution.fcn]]: Fully convolutional networks. To enable high-resolution predictions, [[topic.convolution.dilated net]] is adopted.
+  - [[topic.convolution.dilated net]]:
+  ((ref: [[topic.convolution.dilated net]]#dilated net,1))
   - 
     ### Network architecture
-    - [[ResNet 101]] $ \{C_2,C_3,C_4,C_5\} $ and [[FPN]] $ \{P_2,P_3,P_4,P_5\} $ where $ P_5 $ follows [[Pyramid Pooling Module (PPM)]].  
+    - [[ResNet 101]] $ \{C_2,C_3,C_4,C_5\} $ and [[topic.convolution.fpn]] $ \{P_2,P_3,P_4,P_5\} $ where $ P_5 $ follows [[Pyramid Pooling Module (PPM)]].  
     - **Scene label**: the highest level attribute annotated at image-level.
         - Predicted by a [[Global Average Pooling]] of $ P_5 $ followed by a linear classifier.  
-        - Unlike [[Dilated Net]], the down-sampling rate of $ P_5 $ is large so the features after [[Global Average Pooling]] focus more on high-level semantics.
-    - **Object label**: fusing all feature maps of [[FPN]] is better than only using the highest resolution ($ P_2 $).
+        - Unlike [[topic.convolution.dilated net]], the down-sampling rate of $ P_5 $ is large so the features after [[Global Average Pooling]] focus more on high-level semantics.
+    - **Object label**: fusing all feature maps of [[topic.convolution.fpn]] is better than only using the highest resolution ($ P_2 $).
     - Materials: On top of $P_2$ rather than fused features.
     - **Texture label**: given at image-level, is based on non-natural images.
     - ![https://remnote-user-data.s3.amazonaws.com/tTVklhTOhsJ_HMBdrVcdaw8KCn59cMDzRySYaUIYZpWwMfyvNrhPbMzrLo8uWg-Sbir72RiPq0bQ-ISHhJihozh2wImbuMkTeIt9Jp3_izdE1ILmElkJGww9PCodVcXB](https://remnote-user-data.s3.amazonaws.com/tTVklhTOhsJ_HMBdrVcdaw8KCn59cMDzRySYaUIYZpWwMfyvNrhPbMzrLo8uWg-Sbir72RiPq0bQ-ISHhJihozh2wImbuMkTeIt9Jp3_izdE1ILmElkJGww9PCodVcXB)

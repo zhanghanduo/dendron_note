@@ -1,2 +1,0 @@
-# Mobilenet | Topic.segment.mobilenet
-
